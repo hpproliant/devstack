@@ -287,7 +287,7 @@ function configure_tempest {
     mkdir -p $TEMPEST_STATE_PATH
     iniset $TEMPEST_CONFIG DEFAULT use_stderr False
     iniset $TEMPEST_CONFIG DEFAULT log_file tempest.log
-    iniset $TEMPEST_CONFIG DEFAULT debug True
+    iniset $TEMPEST_CONFIG DEFAULT debug False
 
     # Timeouts
     iniset $TEMPEST_CONFIG compute build_timeout $BUILD_TIMEOUT
@@ -361,6 +361,7 @@ function configure_tempest {
             iniset $TEMPEST_CONFIG compute fixed_network_name $PHYSICAL_NETWORK
         else
             iniset $TEMPEST_CONFIG compute fixed_network_name $PRIVATE_NETWORK_NAME
+        fi
     fi
 
     # Compute Features
